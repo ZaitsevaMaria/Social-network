@@ -1,0 +1,266 @@
+
+h1 {
+  font-size: 6vmin;
+}
+
+h3 {
+  font-size: 2.8vmin;
+}
+
+p {
+  font-size: 2.8vmin;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 7px;
+}
+
+.header{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-nav {
+    display: flex;
+    align-items: baseline;
+    list-style-type: none;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #F5F0FF;
+}
+
+
+/* base.html */
+
+.main-inscription {
+    display: flex;
+    justify-self: start;
+}
+
+.main-picture-middle-near-inscription {
+    display: flex;
+    justify-self: end;
+}
+
+.custom-img-fluid{
+    max-width: 100%;
+}
+
+.main-picture-big-below-inscription {
+    display: flex;
+    justify-self: start;
+    padding-top: 7px;
+}
+
+
+/* about_project.html */
+
+.item-about-opportunity1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-self: center;
+    justify-self: center;
+}
+
+.item-about-opportunity2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    align-self: center;
+    justify-self: center;
+}
+
+.item-about-opportunity3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    justify-self: center;
+}
+
+.item-about-opportunity4 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    align-self: center;
+    justify-self: center;
+}
+
+.item-about-picture {
+    max-width: 80%;
+}
+
+
+/* lessons_list.html; users_list.html; posts_list.html */
+
+.found-something {
+    margin: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-self: start;
+    justify-self: start;
+}
+
+
+/* lesson_detail.html */
+
+.lessons-detail {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+.search-user {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+
+/* posts_list.html */
+
+.posts-list {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+
+/* post_detail.html */
+
+.post-detail-content {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+.button-edit-post {
+    margin-bottom: 15px;
+}
+
+
+/* authors_post_likes */
+
+.authors-post-likes-content {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: auto;
+}
+
+.count-likes {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.authors-likes {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+
+/* users_list.html */
+
+.users-list-content {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-user {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    justify-self: start;
+    align-items: start;
+}
+
+
+/* users_detail.html */
+
+.user-detail-about-user {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 7;
+}
+
+.user-detail-avatar-position {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 7;
+
+}
+
+.user-detail-avatar {
+    display: block;
+    max-width: 70%;
+}
+
+.user-detail-comment-position {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: auto;
+}
+
+
+/* lessons_list.html */
+
+.lessons-list {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: auto;
+}
+
+
+/* posts_list_user.html */
+
+.posts-list-user-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts-list-user-textarea{
+  height: 100%;
+  width: 100%;
+
+}
+
+.button-under-textarea{
+    margin-top: 10px;
+}

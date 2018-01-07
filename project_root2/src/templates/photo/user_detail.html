@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Пользователь инфо {% endblock %}
+
+
+{% block content %}
+
+        <div class = "user-detail-about-user">
+            <p><span class="font-weight-bold"> Имя: </span> {{user.username}} </p>
+            <p><span class="font-weight-bold"> О себе: </span> {{ user.about_user }} </p>
+        </div>
+
+        <div class = "user-detail-avatar-position">
+            <p> {% if user.avatar %}
+                    <img class = "user-detail-avatar" src = "{{ user.avatar.url }}">
+                {% endif %} </p>
+        </div>
+
+        <div class = user-detail-comment-position>
+            <p class="badge badge-pill badge-warning"> Количество постов: {{ posts| length }} </p>
+            {% for post in posts %}
+                <p> {{ post.date_created }} </p>
+                <p><a href="photo/post/detail/{{ post.id }}/"> {{ post.text }} </a></p>
+
+                <p class="badge badge-pill badge-info"> Лайки: {{post.num_likes}} </p>
+            {% endfor %}
+        </div>
+
+{% endblock %}
+

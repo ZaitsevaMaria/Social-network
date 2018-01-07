@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Список пользователей {% endblock %}
+
+
+{% block content %}
+
+    <div class="found-something">
+        <h3><span class="badge badge-primary"> Найдено пользователей: {{ users| length }} </span></h3>
+    </div>
+
+    <div class = "users-list-content">
+        {% for user in users %}
+            <div class="alert alert-warning" role="alert">
+                <span class="item-user"> <a href="photo/user/detail/{{ user.id }}/">
+                    {{ user.username }} </a> </span> <span> {{user.about_user|truncatewords:7}} </span>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

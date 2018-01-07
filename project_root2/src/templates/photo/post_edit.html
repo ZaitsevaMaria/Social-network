@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Пост {% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" action="{% url 'photo:post_edit' post_id=post.id %}" class="post-form">
+        {% csrf_token %}
+        <textarea name="text" class="form-control" id="exampleTextarea" rows="3"> {{post.text}} </textarea>
+
+        <div class="button-under-textarea">
+            <input type="submit" class="btn btn-outline-warning btn-sm"  value="Сохранить"/>
+        </div>
+    </form>
+
+{% endblock %}
+
+

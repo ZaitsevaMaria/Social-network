@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Пост инфо {% endblock %}
+
+
+{% block content %}
+
+    <div class = "post-detail-content">
+
+        <p><span class="font-weight-bold"> Дата публикации: </span> {{post.date_created}}  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <span class="font-weight-bold"> Пользователь: </span><a href="photo/user/detail/{{ post.user.id }}/">
+                {{post.user.username}} </a></p>
+        <p>  {{ post.text|linebreaksbr }} </p>
+        <p> {% if post.photo %}
+                <img src = "{{ post.photo.url }}" class="img-fluid">
+            {% endif %} </p>
+
+        <div class="button-edit-post">
+            {% if post.user_id == request.user.id %}
+                <a href="{% url 'photo:post_edit' post_id=post.id %}">
+                    <input type="submit" class="btn btn-outline-warning btn-sm" value="Редактировать пост"/>
+                </a>
+            {% endif %}
+        </div>
+
+        <span class="font-weight-bold" class="avg-mark"> Средние оценки: </span></br>
+        {% for key, value in marks_rounded.items %}
+            <span class="badge badge-pill badge-info">
+            {{ key }}: {{ value }} </span> &nbsp; &nbsp; &nbsp;
+        {% endfor %}
+
+        <!--количество лайков и их авторы-->
+        <div class="like-count"> <span class="font-weight-bold">
+            Лайки: </span> {{likes| length}} </div>
+        <a href="photo/authors_post_likes/{{ post.id }}/"> Авторы лайков здесь </a>
+
+
+        <!--комментарии к посту-->
+        <p> <span class="font-weight-bold"> Комментарии: </span> {{comments| length}} </p>
+        <div class="new_comment">   </div>
+
+        {% for comment in comments %}
+            <div id="comment-content">
+                <p> {{comment.date_created}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="photo/user/detail/{{ comment.user.id }}/"> {{comment.user.username}} </a></p>
+                <p> {{comment.text}}  </p>
+
+                <div class="button-edit-post">
+                    {% if comment.user_id == request.user.id %}
+                        <a href="{% url 'photo:comment_edit' comment_id=comment.id %}">
+                            <input type="submit" class="btn btn-outline-warning btn-sm"
+                            value="Редактировать комментарий"/>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <!--форма создания-->
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="text" class="form-control" id="exampleTextarea" rows="3">  </textarea>
+
+            <input type="submit" class="btn btn-outline-warning btn-sm"  value="Добавить комментарий"/>
+        </form>
+
+    </div>
+
+{% endblock %}

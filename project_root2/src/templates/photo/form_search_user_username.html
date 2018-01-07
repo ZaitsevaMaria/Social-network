@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Поиск {% endblock %}
+
+
+{% block content %}
+
+    <div class="search-user">
+        <form method="POST" action="" class="search-byusername-user-form">
+            {% csrf_token %}
+            <div class="input-group input-group-sm">
+                {{ search.query.errors }}
+                {{ search.query }}
+                <button class = "btn btn-search" type="submit">Поиск</button>
+            </div>
+        </form>
+        <div class="users"></div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="/static/search-user-username.js"> </script>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Пользователь инфо {% endblock %}
+
+
+{% block content %}
+
+    <div> {% if user.avatar %}
+            <img src = "{{ user.avatar.url }}" class="img-fluid">
+        {% endif %}
+    </div>
+
+    <div>
+        <p><span class="font-weight-bold"> Имя: </span> {{user.username}} </p>
+        <p><span class="font-weight-bold"> О себе: </span> {{user.about_user}} </p>
+    </div>
+
+{% endblock %}

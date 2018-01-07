@@ -1,0 +1,13 @@
+<div class = "users-list-content">
+    {% for user in users %}
+    <div class="alert alert-warning" role="alert">
+            <span class="item-user"> <a href="photo/user/detail/{{ user.id }}/">
+                {{ user.username }} </a> </span> <span> {{user.about_user|truncatewords:7}} </span>
+    </div>
+    {% endfor %}
+
+    {% if not users %}
+        <h3> Пользователи не найдены </h3>
+    {% endif %}
+
+</div>

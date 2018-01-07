@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Поиск {% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" action="" class="search-bytag-post-form">
+        {% csrf_token %}
+        <div class="input-group input-group-sm">
+            {{ form_search_post_tag.tag_name.errors }}
+            {{ form_search_post_tag.tag_name }}
+            <button class = "btn btn-search" type="submit"> Поиск </button>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="/static/search-post-tag.js"> </script>
+
+{% endblock %}

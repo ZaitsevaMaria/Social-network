@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Список постов {% endblock %}
+
+
+{% block content %}
+
+    <!--форма создания-->
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="text" class="form-control" id="exampleTextarea" rows="3">  </textarea>
+        <input type="submit" class="btn btn-outline-warning btn-sm" value="Добавить пост"/>
+    </form>
+
+    <!--список постов-->
+    <div class="found-something">
+        <h3><span class="badge badge-primary"> Найдено постов: {{ posts| length }} </span></h3>
+    </div>
+
+    <div class="posts-list">
+        {% for post in posts %}
+            <span class="font-weight-bold"> Дата публикации: </span> {{post.date_created}} <br>
+            <p><a href="photo/post/detail/{{ post.id }}/"> {{ post.text|linebreaksbr }} </a></p>
+            <p> {% if post.photo %}
+                    <img src = "{{ post.photo.url }}" class="img-fluid">
+                {% endif %} </p>
+
+            <div class="button-edit-post">
+                {% if post.user_id == request.user.id %}
+                    <a href="{% url 'photo:post_edit' post_id=post.id %}">
+                        <input type="submit" class="btn btn-outline-warning btn-sm" value="Редактировать пост"/>
+                    </a>
+                {% endif %}
+            </div>
+
+            <p class="badge badge-pill badge-info"> Лайки: {{post.num_likes}} </p>
+            <p class="badge badge-pill badge-info"> Комментарии: {{post.num_comments}} </p><br>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Лайки {% endblock %}
+
+
+{% block content %}
+
+        <div class="count-likes">
+            <p><span class="font-weight-bold"> Количество лайков:</span> {{likes| length}} </p>
+        </div>
+
+        <div class = "authors-likes">
+            <p class="font-weight-bold"> Авторы лайков:</p>
+            {% for like in likes %}
+                <p><a href="photo/user/detail/{{ like.user.id }}/"> {{ like.user.username}} </a></p>
+            {% endfor %}
+        </div>
+
+{% endblock %}
+
+
